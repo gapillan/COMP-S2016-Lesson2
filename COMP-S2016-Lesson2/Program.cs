@@ -9,7 +9,7 @@ using System.Threading.Tasks;
  * Date: May 17th, 2016
  * Date Modified: May 17th, 2016
  * Description: Advance Methods Demo for Lesson 2 
- * Version: 0.0.4 - Added addYtoX method and associated test 
+ * Version: 0.0.5 - added readUntilEnd - not completed  
  */
 
 
@@ -43,6 +43,10 @@ namespace COMP_S2016_Lesson2
             addYtoX(ref x, ref y);
 
             Console.WriteLine(x);
+
+            Console.WriteLine();
+            Console.WriteLine(readUntilEnd());
+            
         }
 
         /**
@@ -73,5 +77,26 @@ namespace COMP_S2016_Lesson2
             return X;
         }
 
+        public static string[] readUntilEnd() 
+        {
+            string[] inputs = new string[100];
+            int inputCounter = 0;
+
+            do
+            {
+                Console.WriteLine("Enter a value  -('end' to stop): ");
+                inputs[inputCounter] = Console.ReadLine();
+                if (inputs[inputCounter] == "end")
+                {
+                    inputCounter = -1;
+                }
+                else 
+                {
+                    inputCounter++;
+                }
+            } while (inputCounter != -1); 
+
+            return inputs; 
+        }
     }
 }

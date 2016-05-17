@@ -28,7 +28,7 @@ namespace UnitTestForLesson2
         {
 
             // Arrange 
-            int x = 40;
+            int x = 0;
             int y = 50;
             int expectedResult = 90;
 
