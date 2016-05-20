@@ -38,5 +38,24 @@ namespace UnitTestForLesson2
             // Assert 
             Assert.AreEqual(expectedResult, result);
         }
+
+        public void readUntilEndTestMethod()
+        {
+
+            // Arrange 
+            int numberOfEntries = 5; 
+            //string[] returnedArray = new string[numberOfEntries]; 
+            int expectedCount = 5;
+            int actualCount = 0; 
+
+            // Act
+            actualCount = Program.readUntilEnd(numberOfEntries);
+            //returnedArray = Program.readUntilEnd(numberOfEntries);
+            //Console.WriteLine(returnedArray.Length);
+
+            // Assert 
+            Assert.AreEqual(expectedCount, actualCount);
+            //Assert.IsTrue(returnedArray.Length == 0);
+        }
     }
 }

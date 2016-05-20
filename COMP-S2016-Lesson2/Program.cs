@@ -9,7 +9,7 @@ using System.Threading.Tasks;
  * Date: May 17th, 2016
  * Date Modified: May 17th, 2016
  * Description: Advance Methods Demo for Lesson 2 
- * Version: 0.0.5 - added readUntilEnd - not completed  
+ * Version: 0.0.6 - added readUntilEndTestMethod and refactored methods   
  */
 
 
@@ -35,6 +35,7 @@ namespace COMP_S2016_Lesson2
             int x = 50;
             int y = 40;
             int result = 0;
+            int numberOfEntries;
 
             result = addXandY(x, y);
             Console.WriteLine(result);
@@ -43,10 +44,13 @@ namespace COMP_S2016_Lesson2
             addYtoX(ref x, ref y);
 
             Console.WriteLine(x);
-
-            Console.WriteLine();
-            Console.WriteLine(readUntilEnd());
-            
+        
+                Console.Write("How many entries do you want to make? ");
+                int.TryParse(Console.ReadLine(), out numberOfEntries);
+                if (numberOfEntries > 0) 
+                {
+                     readUntilEnd(numberOfEntries);
+                }  
         }
 
         /**
@@ -77,26 +81,24 @@ namespace COMP_S2016_Lesson2
             return X;
         }
 
-        public static string[] readUntilEnd() 
+        public static int readUntilEnd(int numberOfEntries) 
         {
-            string[] inputs = new string[100];
+            //varaiable declaration 
+            string[] inputs = new string[numberOfEntries];
             int inputCounter = 0;
 
+            //execution of code
             do
             {
                 Console.WriteLine("Enter a value  -('end' to stop): ");
+                inputs[inputCounter] = "";
                 inputs[inputCounter] = Console.ReadLine();
-                if (inputs[inputCounter] == "end")
-                {
-                    inputCounter = -1;
-                }
-                else 
-                {
-                    inputCounter++;
-                }
-            } while (inputCounter != -1); 
+                //Console.WriteLine("You typed: " + inputs[inputCounter]);
+                //Console.WriteLine("Array Length: " + inputs.Length);
+                inputCounter++;   
+            } while ((inputs[inputCounter-1] != "end") && (inputCounter < numberOfEntries)); 
 
-            return inputs; 
+            return inputCounter; 
         }
     }
 }
